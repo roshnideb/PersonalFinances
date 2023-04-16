@@ -1,0 +1,16 @@
+<h2>Accounts</h2>
+<button (click)="onAddClicked()">Add Account</button>
+<app-account-add *ngIf="addClicked"></app-account-add>
+
+
+<ul class="accounts">
+    <li *ngFor="let account of accounts">
+        <button [class.selected]="account === selectedAccount" type="button" (click)="onSelect(account)">
+            <span class="name">{{account.name}}</span>
+            <span class="balance">{{account.balance}}</span>
+        </button>
+    </li>
+</ul>
+
+
+<app-account-details [account]="selectedAccount"></app-account-details>

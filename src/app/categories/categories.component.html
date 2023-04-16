@@ -1,0 +1,12 @@
+<h2>Categories</h2>
+<ul class="categories">
+    <li *ngFor="let category of categories">
+        <button [class.selected]="category === selectedCategory" type="button" (click)="onSelect(category)">
+            <span class="name">{{category.name}}</span>
+            <span class="budget">{{category.budget}}</span>
+        </button>
+    </li>
+</ul>
+
+<app-category-details [category]=selectedCategory></app-category-details>
+

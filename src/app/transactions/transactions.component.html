@@ -1,0 +1,16 @@
+<h2>Transactions</h2>
+<button (click)="clickAdd()">Add Transaction</button>
+<app-add-transaction *ngIf="add"></app-add-transaction>
+
+<ul class="transactions">
+    <li *ngFor="let transaction of transactions">
+        <button [class.selected]="transaction === selectedTransaction" type="button" (click)="onSelect(transaction)">
+            <span class="name">{{transaction.name}}</span>
+            <span class="date">{{transaction.date}}</span>
+            <span class="amount">{{transaction.amount}}</span>
+        </button>
+    </li>
+</ul>
+
+
+<app-transaction-details [transaction]=selectedTransaction></app-transaction-details>

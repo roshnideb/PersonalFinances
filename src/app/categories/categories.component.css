@@ -1,0 +1,22 @@
+.categories {
+    list-style-type: none;
+    margin: 0 0 2em 0;
+    padding: 1em;
+    
+}
+
+.categories button {
+    flex: 1;
+    display: flex;
+    background-color:lightpink;
+    border: none;
+    margin: 0.5em;
+    padding: 0;
+    width: 18em;
+    
+}
+
+.categories span {
+    padding: 0.5rem;
+}
+

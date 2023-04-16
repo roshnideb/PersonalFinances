@@ -1,0 +1,13 @@
+<div *ngIf="account">
+    <h2>{{account.name}}</h2>
+    <h3>{{account.balance}}</h3>
+    <ul>
+        <li *ngFor="let transaction of transactions">
+            <button type="buttons">
+                <span class="name">{{transaction.name}}</span>
+                <span class="date">{{transaction.date}}</span>
+                <span class="amount">{{transaction.amount}}</span>
+            </button>
+        </li>
+    </ul>
+</div>
