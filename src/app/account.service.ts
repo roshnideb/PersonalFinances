@@ -5,20 +5,41 @@ import { Account } from './account'
 import { HttpClient, HttpErrorResponse, HttpHeaders } from '@angular/common/http';
 import { Transaction } from './transaction';
 import { Category } from './category';
+import { User } from './user';
+import { CookieService } from 'ngx-cookie-service';
 
 @Injectable({
   providedIn: 'root'
 })
 export class AccountService {
-  private userid = 1;
+  
+
+  
+  constructor(
+    private http: HttpClient,
+    private cookie: CookieService,
+  ) { }
+
+  private userid = this.cookie.get('user_id');
   private accountsUrl = `http://localhost:8080/api/${this.userid}/accounts`;
   private transactionsUrl = `http://localhost:8080/api/users/${this.userid}/transactions`;
   private categoriesUrl = `http://localhost:8080/api/${this.userid}/categories`;
   
-  
-  constructor(
-    private http: HttpClient
-  ) { }
+
+  login(email: string, password: string): Observable<User> {
+    const url = `http://localhost:8080/api/login/${email}/${password}`;
+    alert(url)
+    return this.http.get<User>(url);
+  }
+
+  signup(user: User): Observable<User> {
+    return this.http.post<User>(`http://localhost:8080/api/signup`, user);
+  }
+
+  doesEmailExist(email: String): Observable<User> {
+    const url = `http://localhost:8080/api/user/${email}`;
+    return this.http.get<User>(url);
+  }
 
   getAccounts(): Observable<Account[]> {
     return this.http.get<Account[]>(this.accountsUrl)
@@ -27,6 +48,11 @@ export class AccountService {
   getAccount(accountid: number): Observable<Account> {
     const url = `http://localhost:8080/api/accounts/${accountid}`;
     return this.http.get<Account>(url);
+  }
+
+  getCategory(categoryid: number): Observable<Category> {
+    const url = `http://localhost:8080/api/categories/${categoryid}`;
+    return this.http.get<Category>(url);
   }
 
   getTransactions(): Observable<Transaction[]> {
@@ -76,6 +102,14 @@ export class AccountService {
 
   addCategory(category: Category): Observable<Category> {
     return this.http.post<Category>(`http://localhost:8080/api/newcategory`, category);
+  }
+
+  updateAccountBalance(accountid: number, newBalance: number): Observable<number> {
+    return this.http.post<number>(`http://localhost:8080/api/accounts/${accountid}/update/${newBalance}`, accountid);
+  }
+
+  updateCategoryBudget(categoryid: number, newBudget: number): Observable<number> {
+    return this.http.post<number>(`http://localhost:8080/api/categories/${categoryid}/update/${newBudget}`, categoryid);
   }
 
   

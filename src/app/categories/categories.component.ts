@@ -12,10 +12,18 @@ export class CategoriesComponent {
   categories: Category[] = [];
   selectedCategory?: Category;
 
+  add=false;
+
+  showDetails = false;
+
   constructor(private accountService: AccountService) { }
 
   ngOnInit(): void {
     this.getCategories();
+  }
+
+  clickAdd(): void {
+    this.add=!this.add;
   }
 
   getCategories(): void {
@@ -25,5 +33,9 @@ export class CategoriesComponent {
 
   onSelect(category: Category): void {
     this.selectedCategory = category;
+  }
+
+  switchShowDetails() {
+    this.showDetails= !this.showDetails;
   }
 }

@@ -12,5 +12,6 @@
     </li>
 </ul>
 
+<button type="checkbox" (click)="switchShowDetails()">Show Account Details</button>
 
-<app-account-details [account]="selectedAccount"></app-account-details>
+<app-account-details *ngIf="showDetails" [account]="selectedAccount"></app-account-details>

@@ -10,15 +10,17 @@ import { AccountService } from '../account.service';
 })
 export class AddAccountComponent {
   submitted=false;
-  model = new Account(0,'',0);
+  //model = new Account(0,'',0,'');
+
+  accountTypes = ['Checking','Savings'];
 
   constructor (private accountService: AccountService) {}
 
-  onSubmit() {
+  /*onSubmit() {
     this.accountService.addAccount(this.model)
       .subscribe(account => console.log(account.accountid));
     
     this.submitted=true;
 
-  }
+  }*/
 }

@@ -17,6 +17,9 @@ import {MatDialogModule} from '@angular/material/dialog';
 import { AddTransactionComponent } from './add-transaction/add-transaction.component';
 import { AddCategoryComponent } from './add-category/add-category.component';
 import { AccountAddComponent } from './account-add/account-add.component';
+import { LoginComponent } from './login/login.component';
+import { SignUpComponent } from './sign-up/sign-up.component';
+import { ProfileComponent } from './profile/profile.component';
 
 
 @NgModule({
@@ -30,7 +33,10 @@ import { AccountAddComponent } from './account-add/account-add.component';
     TransactionDetailsComponent,
     AddTransactionComponent,
     AddCategoryComponent,
-    AccountAddComponent
+    AccountAddComponent,
+    LoginComponent,
+    SignUpComponent,
+    ProfileComponent
   ],
   imports: [
     BrowserModule,

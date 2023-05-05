@@ -1,12 +1,15 @@
 <h3>Add Account</h3>
 
 <form (ngSubmit)="onSubmit()" #userForm="ngForm">
-    <label for="accountid">Account ID:</label><br>
-    <input type="number" id="accountid" required [(ngModel)]="model.accountid" name="ngModel"><br>
     <label for="name">Account Name:</label><br>
     <input type="text" id="name" required [(ngModel)]="model.name" name="ngModel"><br>
     <label for="balance">Balance:</label><br>
     <input type="number" id="balance" required [(ngModel)]="model.balance" name="ngModel"><br>
+
+    <label for="type">Account Type:</label>
+    <select id="type" required [(ngModel)]="model.type" name="type" #name="ngModel">
+        <option *ngFor="let a of accountTypes" [value]="a">{{a}}</option>
+    </select><br>
 
     <button type="submit">Add Account</button>
 </form>

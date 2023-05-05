@@ -1,16 +1,27 @@
 <h3>Add Transaction</h3>
 
 <form (ngSubmit)="onSubmit()" #userForm="ngForm">
-    <label for="trasactionid">Transaction ID:</label><br>
-    <input type="number" id="transactionid" required [(ngModel)]="model.transactionid" name="ngModel"><br>
+    
     <label for="name">Name:</label><br>
     <input type="text" id="name" required [(ngModel)]="model.name" name="ngModel"><br>
     <label for="date">Date:</label><br>
     <input type="date" id="date" required [(ngModel)]="model.date" name="ngModel"><br>
+
     <label for="amount">Amount:</label><br>
     <input type="number" id="amount" required [(ngModel)]="model.amount" name="ngModel"><br>
     <label for="comment">Comment:</label><br>
     <input type="text" id="comment" required [(ngModel)]="model.comment" name="ngModel"><br>
 
-    <button type="submit">Add Account</button>
+    <label for="account">Account:</label><br>
+    <select id="account" required [(ngModel)]="model.accountid" name="account" #name="ngModel">
+        <option *ngFor="let a of userAccounts" [value]="a.accountid">{{a.name}}</option>
+    </select><br>
+
+    <label for="category">Categories:</label><br>
+    <select id="category" required [(ngModel)]="model.categoryid" name="category" #name="ngModel">
+        <option *ngFor="let c of userCategories" [value]="c.categoryid">{{c.name}}</option>
+    </select><br>
+
+
+    <button type="submit">Add Transaction</button>
 </form>

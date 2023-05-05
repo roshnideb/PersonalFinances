@@ -6,11 +6,12 @@ export class Category {
 
     constructor (
         categoryid: number,
+        userid: number,
         name: string,
         budget: number,
     ) {
         this.categoryid = categoryid;
-        this.userid = 1;
+        this.userid = userid;
         this.name = name;
         this.budget = budget;
     }

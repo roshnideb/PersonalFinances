@@ -13,6 +13,8 @@ export class TransactionsComponent {
 
   add=false;
 
+  showDetails=false;
+
   constructor(private accountService: AccountService) { }
 
   ngOnInit(): void {
@@ -30,6 +32,10 @@ export class TransactionsComponent {
 
   onSelect(transaction: Transaction): void {
     this.selectedTransaction = transaction;
+  }
+
+  switchShowDetails() {
+    this.showDetails= !this.showDetails;
   }
 
 }

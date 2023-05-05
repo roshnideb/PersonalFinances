@@ -26,6 +26,8 @@ export class AccountsComponent {
 
   addClicked=false;
 
+  showDetails=false;
+
   constructor(
     private accountService: AccountService,
     public dialog: MatDialog,
@@ -58,6 +60,10 @@ export class AccountsComponent {
 
   onSelect(account: Account): void {
     this.selectedAccount = account;
+  }
+
+  switchShowDetails() {
+    this.showDetails= !this.showDetails;
   }
 
   

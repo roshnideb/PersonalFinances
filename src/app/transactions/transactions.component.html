@@ -12,5 +12,5 @@
     </li>
 </ul>
 
-
-<app-transaction-details [transaction]=selectedTransaction></app-transaction-details>
+<button type="checkbox" (click)="switchShowDetails()">Show Transaction Details</button>
+<app-transaction-details *ngIf="showDetails" [transaction]=selectedTransaction></app-transaction-details>

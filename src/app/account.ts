@@ -7,14 +7,16 @@ export class Account {
 
     constructor (
         accountid: number,
+        userid: number,
         name: string,
         balance: number,
+        type: string,
     ) {
         this.accountid = accountid;
-        this.userid = 1;
+        this.userid = userid;
         this.name = name;
         this.balance = balance;
-        this.type = "";
+        this.type = type;
     }
     
 }
